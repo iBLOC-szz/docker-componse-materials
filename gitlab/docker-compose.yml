@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  gitlab:
+    image: gitlab/gitlab-ce
+    restart: always
+    privileged: true
+    hostname: gitlab
+    ports: 
+      - 8880:80
+      - 8443:443
+      # - 8822:22
+    volumes:
+      - /data/gitlab/config:/etc/gitlab
+      - /data/gitlab/logs:/var/log/gitlab
+      - /data/gitlab/data:/var/opt/gitlab
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner
+    restart: always
+    privileged: true
+    hostname: gitlab-runner
+    volumes: 
+      - /data/gitlab-runner/config:/etc/gitlab-runner
+      - /data/gitlab-runner/docker.sock:/var/run/docker.sock

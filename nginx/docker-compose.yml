@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  nginx:
+    image: nginx
+    restart: always
+    tty: true
+    ports: 
+      - 80:80
+    volumes:
+      - /data/nginx/config/nginx.conf:/etc/nginx/nginx.conf
+      - /data/nginx/config/conf.d/:/etc/nginx/conf.d/

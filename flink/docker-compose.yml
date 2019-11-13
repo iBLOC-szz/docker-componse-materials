@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+
+  jobmanager:
+    image: flink
+    restart: always
+    hostname: jobmanager
+    ports: 
+      - 8081:8081
+    command: jobmanager
+    environment: 
+      JOB_MANAGER_RPC_ADDRESS: jobmanager
+
+  taskmanager1:
+    image: flink
+    restart: always
+    hostname: taskmanager1
+    command: taskmanager
+    environment: 
+      JOB_MANAGER_RPC_ADDRESS: jobmanager
+
+  taskmanager2:
+    image: flink
+    restart: always
+    hostname: taskmanager2
+    command: taskmanager
+    environment: 
+      JOB_MANAGER_RPC_ADDRESS: jobmanager
+    

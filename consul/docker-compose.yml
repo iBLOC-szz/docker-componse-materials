@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  consul1:
+    image: consul
+    restart: always
+    hostname: consul1
+    ports: 
+      - 8300:8300
+      - 8500:8500
+      - 8600:8600
+    command: agent -dev -ui -client=0.0.0.0 -bootstrap-expect=1 -node=consul1 
+  
+
+
+
+    

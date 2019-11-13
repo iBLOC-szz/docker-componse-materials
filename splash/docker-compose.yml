@@ -1,0 +1,28 @@
+version: '3.6'
+
+services:
+
+  splash1:
+    image: scrapinghub/splash
+    restart: always
+    ports: 
+      - 8051:8050
+  splash2:
+    image: scrapinghub/splash
+    restart: always
+    ports: 
+      - 8052:8050
+  splash3:
+    image: scrapinghub/splash
+    restart: always
+    ports: 
+      - 8053:8050
+  splash4:
+    image: scrapinghub/splash
+    restart: always
+    ports: 
+      - 8054:8050
+
+
+
+    

@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes: 
+      - /data/redis/config:/usr/local/etc/redis
+      - /data/redis/data:/data
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes: 
+      - /data/mongo/data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  mysql:
+    image: mysql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    ports: 
+      - 3306:3306
+    volumes: 
+      - /data/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+
+  postgres:
+    image: postgres
+    restart: always
+    ports: 
+      - 5432:5432
+    volumes: 
+      - /data/postgres/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+
+
+
+
+    
