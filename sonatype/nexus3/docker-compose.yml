@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+
+   redis:
+    image: sonatype/nexus3
+    restart: always
+    ports:
+      - 8081:8081
+    volumes: 
+      - /home/nexus-data:/nexus-data

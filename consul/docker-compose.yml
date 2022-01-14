@@ -11,6 +11,8 @@ services:
       - 8500:8500
       - 8600:8600/udp
     command: agent -dev -ui
+    networks:
+      - consul
 
   consul-server-1:
     image: consul
@@ -21,12 +23,21 @@ services:
       - 8500:8500
       - 8600:8600/udp
     command: agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0
+    networks:
+      - consul
 
   consul-client-1:
     image: consul
     restart: always
     hostname: consul-client-1
     command: agent -node=client-1 -join=consul-server-1
+    networks:
+      - consul
+      
+networks:
+  consul:
+    driver: bridge
+
 
 
     
