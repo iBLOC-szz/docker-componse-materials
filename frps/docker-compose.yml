@@ -1,0 +1,10 @@
+version: '3.6'
+
+services:
+
+  frps:
+    image: snowdreamtech/frps
+    restart: always
+    network_mode: "host"
+    volumes: 
+      - /home/frp/frps.ini:/etc/frp/frps.ini
