@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+
+ nps:
+  image: ffdfgdfg/nps
+  restart: always
+  network_mode: "host"
+  volumes:
+   - /home/nps/conf:/conf
+    
