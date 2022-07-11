@@ -9,3 +9,15 @@ services:
   volumes:
    - /home/nps/conf:/conf
     
+ npc:
+  image: ffdfgdfg/npc
+  container_name: npc
+  restart: always
+  network_mode: "host"
+  command:
+    - -server
+    - 122.51.150.35:8024
+    - -vkey
+    - nnbd6ujwz72mkg5z
+    - -type
+    - tcp
