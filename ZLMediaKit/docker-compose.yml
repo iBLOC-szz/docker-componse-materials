@@ -1,0 +1,20 @@
+version: '3.6'
+
+services:
+
+  zlmediakit:
+    image: zlmediakit/zlmediakit:master
+    restart: always
+    ports: 
+      - 1935:1935
+      - 28080:80
+      - 28443:443
+      - 28554:554
+      - 10000:10000
+      - 10000:10000/udp
+      - 8000:8000/udp 
+      - 9000:9000/udp 
+
+
+
+    
